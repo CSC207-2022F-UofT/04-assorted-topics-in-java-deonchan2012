@@ -28,7 +28,7 @@ class DrivableMap {
      *       Return true if the Drivable was added to drivable_map.
      */
     public boolean addDrivable(String ID, Drivable obj) {
-        if (!this.drivable_map.get(ID)) {
+        if (this.drivable_map.get(ID) == null) {
             drivable_map.put(ID, obj);
             return true;
         }
@@ -55,13 +55,13 @@ class DrivableMap {
      *       drivable_map.
      */
     public List<Tradable> getTradable() {
-        ArrayList<Tradable> tradableItems = new ArrayList<Tradable>()
+        ArrayList<Tradable> tradableItems = new ArrayList<Tradable>();
         for (Drivable item : drivable_map.values()) {
             if (item instanceof Tradable) {
-                tradableItems.add(item);
+                tradableItems.add((Tradable) item);
             }
         }
-        return (List) tradableItems;
+        return tradableItems;
     }
 
 
